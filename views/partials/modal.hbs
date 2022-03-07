@@ -1,0 +1,84 @@
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Deduction -->
+<div class="modal fade" id="deductionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deduction</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body row">
+                <div class="col-6">Interest:</div>
+                <div class="interest col-6"></div>
+                <div class="col-6">Collection Fee:</div>
+                <div class="collectionFee col-6"></div>
+                <div class="col-6">Service Fee:</div>
+                <div class="serviceFee col-6"></div>
+                <div class="col-6">Loan Retention:</div>
+                <div class="loanretention col-6"></div>
+                <div class="col-6">Monthly/Annual dues:</div>
+                <div class="dues col-6"></div>
+                <div class="col-6">Insurance:</div>
+                <div class="insurance col-6"></div>
+                <div class="col-6">Notorial Fee:</div>
+                <div class="notorial col-6"></div>
+                <div class="col-6">Total Deduction:</div>
+                <div class="t_deduction col-6"></div>
+                <div class="col-6">Net Proceeds:</div>
+                <div class="net col-6"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Security -->
+<div class="modal fade" id="securityModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Security!</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form action="/sa-members-profile" method="POST">
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" type="submit">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

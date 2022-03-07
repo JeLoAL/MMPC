@@ -1,0 +1,282 @@
+<form action="{{addmember}}" method="POST" enctype="multipart/form-data">
+                <div class="pad">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">Personal Information</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="" class="control-label mt-2">Add Picture</label>
+                                                <input id="" name="image" type="file" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="floatingInput" name="fn" placeholder="First Name" required>
+                                                <label for="floatingInput">First Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="floatingInput" name="mn" placeholder="Middle Name" required>
+                                                <label for="floatingInput">Middle Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="floatingInput" name="ln" placeholder="Last Name" required>
+                                                <label for="floatingInput">Last Name</label>
+                                            </div>
+                                        </div>
+
+                                         <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required>
+                                                <label for="floatingInput">Email</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" id="contacts" class="form-control" id="floatingInput" name="contact" placeholder="Contact" required>
+                                                <label for="floatingInput">Contact</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <select name="gender" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+                                                    <option></option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                                <label for="floatingInput">Gender</label>
+                                            </div>
+                                        </div>
+                                        {{!--
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <select name="status" id="status" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+                                                    <option value=""></option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Widow">Widow</option>
+                                                    <option value="Seperated">Seperated</option>
+                                                </select>
+                                                <label for="floatingInput">Status</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input id="birth_date" type="date" oninput="compute_age()" class="form-control" id="floatingInput" name="birth" placeholder="Birth Date" required>
+                                                <label for="floatingInput">Birth Date</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" id="" class="form-control" id="floatingInput" name="birth_place" placeholder="Contact" required>
+                                                <label for="floatingInput">Birth Place</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <select name="zipcode" id="municipality" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+                                                    <option></option>
+                                                    <option value="4901">Mogpog</option>
+                                                    <option value="4900">Boac</option>
+                                                    <option value="4905">Gasan</option>
+                                                    <option value="4904">Buenavista</option>
+                                                    <option value="4903">Torrijos</option>
+                                                    <option value="4902">Sta. Cruz</option>
+                                                </select>
+                                                <label for="floatingInput">Municipality</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <select name="brgy" id="brgy" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+                                                </select>
+                                                <label for="floatingInput">Brgy.</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="floatingInput" name="sss" placeholder="SSS no." required>
+                                                <label for="floatingInput">SSS no.</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="floatingInput" name="gsis" placeholder="GSIS no." required>
+                                                <label for="floatingInput">GSIS no.</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="floatingInput" name="tin" placeholder="TIN no." required>
+                                                <label for="floatingInput">TIN no.</label>
+                                            </div>
+                                        </div>
+                                        <!-- Spouse -->
+                                        <div id="spouse"></div>
+
+                                        <!--Educational background -->
+                                        <div class="row mt-3">
+                                            <div class="col-lg-12 bg-gray mt-2">
+                                                <h4><strong>Educational Attainment</strong></h4>
+                                            </div>
+                                            <div class="col-lg-4 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="course" placeholder="Course/Degree" required>
+                                                    <label for="floatingInput">Course/Degree</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="school" placeholder="School" required>
+                                                    <label for="floatingInput">School</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="year_grad" placeholder="Year Graduated" required>
+                                                    <label for="floatingInput">Year Graduated</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Occupation -->
+                                        <div class="row mt-3">
+                                            <div class="col-lg-12 bg-gray mt-2">
+                                                <h4><strong>Occupation</strong></h4>
+                                            </div>
+                                            <div class="col-lg-3 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="occupation" placeholder="Occupation" required>
+                                                    <label for="floatingInput">Occupation</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="occu_address" placeholder="Work Address" required>
+                                                    <label for="floatingInput">Work Address</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="employee_name" placeholder="Name of Employer" required>
+                                                    <label for="floatingInput">Name of Employer</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="date_employed" placeholder="Date Employed" required>
+                                                    <label for="floatingInput">Date Employed</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="salary" placeholder="Monthly Salary" required>
+                                                    <label for="floatingInput">Monthly Salary</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Business -->
+                                        <div class="row mt-3">
+                                            <div class="col-lg-12 bg-gray mt-2">
+                                                <h4><strong>Business</strong></h4>
+                                            </div>
+                                            <div class="col-lg-6 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="business_name" placeholder="Bussiness Name" required>
+                                                    <label for="floatingInput">Business Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 mt-2">
+                                                <div class="form-floating mb-3 mt-3">
+                                                    <input type="text" class="form-control" id="floatingInput" name="business_address" placeholder="Bussiness Address" required>
+                                                    <label for="floatingInput">Business Address</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Beneficiaries -->
+                                        <div class="fieldGroup pt-3">
+                                            <div class="input-group row">
+                                                <div class="col-lg-12 bg-gray mt-2">
+                                                    <h4><strong>Beneficiaries</strong></h4>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-floating mb-3 mt-3">
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_fullname[]" placeholder="Full Name" required>
+                                                        <label for="floatingInput">Full Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-floating mb-3 mt-3">
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_relationship[]" placeholder="Relationship" required>
+                                                        <label for="floatingInput">Relationship</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="form-floating mb-3 mt-3">
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_birthdate[]" placeholder="Birth Date" required>
+                                                        <label for="floatingInput">Birth Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <div class="mb-3 mt-2">
+                                                        <a href="javascript:void(0)" class="btn btn-success addMore"><i class="fas fa-plus-circle"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>--}}
+                                        <br> 
+                                        <div class="col-12 d-grid">
+                                            <button type="submit" class="btn btn-primary">Add user</button>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- copy of input fields group of addded beneficiries -->
+            <div class="form-group fieldGroupCopy" style="display: none;">
+                <div class="input-group row mt-2">
+                    <div class="col-lg-4">
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" id="floatingInput" name="ben_fullname[]" placeholder="Full Name" required>
+                            <label for="floatingInput">Full Name</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" id="floatingInput" name="ben_relationship[]" placeholder="Relationship" required>
+                            <label for="floatingInput">Relationship</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" name="ben_birthdate[]" placeholder="Birth Date" required>
+                            <label for="floatingInput">Birth Date</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="mb-3">
+                            <a href="javascript:void(0)" class="btn btn-danger remove"><i class="fas fa-minus-circle"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>

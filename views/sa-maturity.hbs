@@ -1,0 +1,79 @@
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar --> 
+        {{> sidebar }}
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                {{> topbar }}
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid link">
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Loan #</th>
+                                            <th>Name</th>
+                                            <th>Amortization</th>
+                                            <th>CV #</th>
+                                            <th>Meta Data</th>
+                                            <th>Meta Data</th>
+                                            <th>Meta Data</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center"><br>0054</td>
+                                            <td class="center"><br>Jhon Doe</td>
+                                            <td class="center"><br>Weekly</td>
+                                            <td class="center"><br>974394</td>
+                                            <td>
+                                                Amount: 20000 <br><a href="" data-toggle="modal" data-target="#deductionModal">Deduction: 2000</a><br>Net: 18000
+                                            </td>
+                                            <td>
+                                                Loan Terms: 4 months <br>Date Release: Jan 10, 2020 <br>Maturity Date: April 10, 2020
+                                            </td>
+                                            <td>
+                                                Balance: 15000 <br>Fines:2000
+                                            </td>
+                                            <td class="center"><br><a href="" style="color: rgb(0, 255, 170);"><i class="fas fa-minus-circle"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            {{> footer }}
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    {{> modal }}
