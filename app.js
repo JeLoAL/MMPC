@@ -22,8 +22,7 @@ app.use(express.static('public'));
 
 //Templating Engine
 app.engine('hbs', exphbs.engine( {
-    extname: '.hbs',
-    layDir: __dirname + '/../views/try/'
+    extname: '.hbs'
 }));
 app.set('view engine', 'hbs');
 
