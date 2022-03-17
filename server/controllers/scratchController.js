@@ -31,7 +31,7 @@ exports.uploadImageP = upload.single('image'), (req, res) => {
     res.render('uploadImage', data);
 }
 
-exports.uploadImageP1 = (req, res) => { 
+exports.uploadImageP1 = (req, res) => {  
     const data = {
         title: "Ulpoad"
     }  
