@@ -165,8 +165,10 @@ exports.tryben = (req, res) => {
     const ben_fullname = req.body;
     const data = {
         title: "Try Ben"
+    }
+    for(let i = 1; i <= 3; i++){
+        console.log(ben_fullname)
     }  
-    console.log(ben_fullname)
     res.render('try-ben', data);
 }
 
