@@ -57,7 +57,6 @@
                                                 <label for="floatingInput">Gender</label>
                                             </div>
                                         </div>
-                                        {{!--
                                         <div class="col-lg-3">
                                             <div class="form-floating mb-3 mt-3">
                                                 <select name="status" id="status" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
@@ -106,21 +105,19 @@
                                                 <label for="floatingInput">Brgy.</label>
                                             </div>
                                         </div>
-
+                                        {{!-- ID's --}}
                                         <div class="col-lg-4">
                                             <div class="form-floating mb-3 mt-3">
                                                 <input type="text" class="form-control" id="floatingInput" name="sss" placeholder="SSS no." required>
                                                 <label for="floatingInput">SSS no.</label>
                                             </div>
                                         </div>
-
                                         <div class="col-lg-4">
                                             <div class="form-floating mb-3 mt-3">
                                                 <input type="text" class="form-control" id="floatingInput" name="gsis" placeholder="GSIS no." required>
                                                 <label for="floatingInput">GSIS no.</label>
                                             </div>
                                         </div>
-
                                         <div class="col-lg-4">
                                             <div class="form-floating mb-3 mt-3">
                                                 <input type="text" class="form-control" id="floatingInput" name="tin" placeholder="TIN no." required>
@@ -154,7 +151,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!--Occupation -->
                                         <div class="row mt-3">
                                             <div class="col-lg-12 bg-gray mt-2">
@@ -191,7 +187,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!--Business -->
                                         <div class="row mt-3">
                                             <div class="col-lg-12 bg-gray mt-2">
@@ -218,29 +213,47 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-floating mb-3 mt-3">
-                                                        <input type="text" class="form-control" id="floatingInput" name="ben_fullname[]" placeholder="Full Name" required>
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_fullname" placeholder="Full Name" required>
                                                         <label for="floatingInput">Full Name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-floating mb-3 mt-3">
-                                                        <input type="text" class="form-control" id="floatingInput" name="ben_relationship[]" placeholder="Relationship" required>
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_relationship" placeholder="Relationship" required>
                                                         <label for="floatingInput">Relationship</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="form-floating mb-3 mt-3">
-                                                        <input type="text" class="form-control" id="floatingInput" name="ben_birthdate[]" placeholder="Birth Date" required>
+                                                        <input type="date" class="form-control" id="floatingInput" name="ben_birthdate" placeholder="Birth Date" required>
+                                                        <label for="floatingInput">Birth Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-floating mb-3 mt-3">
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_fullname" placeholder="Full Name" required>
+                                                        <label for="floatingInput">Full Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-floating mb-3 mt-3">
+                                                        <input type="text" class="form-control" id="floatingInput" name="ben_relationship" placeholder="Relationship" required>
+                                                        <label for="floatingInput">Relationship</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="form-floating mb-3 mt-3">
+                                                        <input type="date" class="form-control" id="floatingInput" name="ben_birthdate" placeholder="Birth Date" required>
                                                         <label for="floatingInput">Birth Date</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1">
-                                                    <div class="mb-3 mt-2">
+                                                    <div class="mb-3 mt-4">
                                                         <a href="javascript:void(0)" class="btn btn-success addMore"><i class="fas fa-plus-circle"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>--}}
+                                        </div>
                                         <br> 
                                         <div class="col-12 d-grid">
                                             <button type="submit" class="btn btn-primary">Add user</button>
@@ -257,24 +270,24 @@
                 <div class="input-group row mt-2">
                     <div class="col-lg-4">
                         <div class="form-floating mb-3 mt-3">
-                            <input type="text" class="form-control" id="floatingInput" name="ben_fullname[]" placeholder="Full Name" required>
+                            <input type="text" class="form-control" id="floatingInput" name="ben_fullname" placeholder="Full Name" required>
                             <label for="floatingInput">Full Name</label>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-floating mb-3 mt-3">
-                            <input type="text" class="form-control" id="floatingInput" name="ben_relationship[]" placeholder="Relationship" required>
+                            <input type="text" class="form-control" id="floatingInput" name="ben_relationship" placeholder="Relationship" required>
                             <label for="floatingInput">Relationship</label>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" name="ben_birthdate[]" placeholder="Birth Date" required>
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="date" class="form-control" id="floatingInput" name="ben_birthdate" placeholder="Birth Date" required>
                             <label for="floatingInput">Birth Date</label>
                         </div>
                     </div>
                     <div class="col-lg-1">
-                        <div class="mb-3">
+                        <div class="mb-3 mt-4">
                             <a href="javascript:void(0)" class="btn btn-danger remove"><i class="fas fa-minus-circle"></i></a>
                         </div>
                     </div>
