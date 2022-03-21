@@ -11,6 +11,7 @@ router.get('/try/try-home', scratchController.view);
 // Homepage and Pre-registration
 router.get('/', userController.homepage);
 router.post('/', userController.homepage);
+router.get('/a-login', userController.loginG);
 router.post('/a-login', userController.login);
 router.get('/a-pre-registration', userController.registration);
 router.post('/a-pre-registration', userController.add_registration);
@@ -29,6 +30,7 @@ router.get('/500', userController.err500);
 
 //Try
 router.get('/try-ben', userController.tryben);
+router.post('/try-ben', userController.trybenP);
 
 // Sratch Controller
 router.get('/uploadImage', scratchController.uploadImageG);
