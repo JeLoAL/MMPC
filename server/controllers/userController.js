@@ -12,6 +12,7 @@ const pool = mysql.createPool({
     database        :process.env.DB_NAME
 });
 
+
 //Uploading profile
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -75,49 +76,48 @@ exports.applicationFormDL = (req, res) => {
     const{ fn, mn, ln, email, contact, gender, status, birth, birth_place, brgy, zipcode, sss, gsis, tin, course, school, year_grad, occupation, occu_address, emmployee_name, date_employed, salary, business_name, business_address, ben_fullname, ben_relationship, ben_birthdate} = req.body;
     const member_status = 0;
     const image = req.file.filename;
-    const mem_id = Math.random().toString(36).slice(2);
+    const mem_id = Math.random().toString(36).slice(2).toUpperCase();
 
-    // Members Info
-    pool.query('INSERT INTO member_info SET mem_id = ?, fn = ?, mn = ?,  ln = ?, email = ?, contact = ?, gender = ?, status = ?, birth = ?, birth_place = ?, brgy = ?, zipcode = ?, member_status = ?, image = ?', [mem_id, fn, mn, ln, email, contact, gender, status, birth, birth_place, brgy, zipcode, member_status, image ], (err, results, fields) =>{
-            if(!err){
-                // Member ID's
-                pool.query('INSERT INTO member_ids SET sss = ?, gsis = ?, tin = ?, mem_id = ?',[sss, gsis, tin, mem_id],(err, results, fields) =>{
+    pool.getConnection((err, conn) => {
+        if (err) return callback(err); 
+        // Member Info
+        conn.query('INSERT INTO member_info SET mem_id = ?, fn = ?, mn = ?,  ln = ?, email = ?, contact = ?, gender = ?, status = ?, birth = ?, birth_place = ?, brgy = ?, zipcode = ?, member_status = ?, image = ?', [mem_id, fn, mn, ln, email, contact, gender, status, birth, birth_place, brgy, zipcode, member_status, image ], (err, results, fields) => { 
+            if (err) throw err;
+            // Member Spouse
+            if(status == "Married"){
+                const {spouse_name, spouse_birth, spouse_occu, spouse_sal } = req.body
+                conn.query('INSERT INTO member_spouse SET spouse_name = ?, spouse_birth = ?, spouse_occupation = ?, spouse_salary = ?, mem_id = ?',[spouse_name, spouse_birth, spouse_occu, spouse_sal, mem_id],(err, results, fields) =>{
                     if(!err){console.log(results);}else{console.log(err);}}
                 );
-                // Member Spouse
-                if(status == "Married"){
-                    const {spouse_name, spouse_birth, spouse_occu, spouse_sal } = req.body
-                    pool.query('INSERT INTO member_spouse SET spouse_name = ?, spouse_birth = ?, spouse_occupation = ?, spouse_salary = ?, mem_id = ?',[spouse_name, spouse_birth, spouse_occu, spouse_sal, mem_id],(err, results, fields) =>{
-                        if(!err){console.log(results);}else{console.log(err);}}
-                    );
-                }
-                //Member Education
-                pool.query('INSERT INTO member_education SET course = ?, school = ?, year_grad = ?, mem_id = ?',[course, school, year_grad, mem_id],(err, results, fields) =>{
-                    if(!err){console.log(results);}else{console.log(err);}}
-                );
-                // Member Occupation
-                pool.query('INSERT INTO member_occupation SET occupation = ?, occu_address = ?, employee_name = ?, date_employed = ?, salary = ?, mem_id = ?',[occupation, occu_address, emmployee_name, date_employed, salary, mem_id],(err, results, fields) =>{
-                    if(!err){console.log(results);}else{console.log(err);}}
-                );
-                // Member Business
-                pool.query('INSERT INTO member_business SET business_name = ?, business_address = ?, mem_id = ?',[business_name, business_address,  mem_id],(err, results, fields) =>{
-                    if(!err){console.log(results);}else{console.log(err);}}
-                );
-                // Member Beneficiaries
-                for(let i = 0; i < ben_fullname.length; i++){
-                    pool.query('INSERT INTO member_beneficiaries SET fullname = ?, relationship = ?, ben_birth = ?, mem_id = ?',[ben_fullname[i], ben_relationship[i], ben_birthdate[i],  mem_id],(err, results, fields) =>{
-                        if(!err){console.log(results);}else{console.log(err);}}
-                    );
-                    console.log(ben_fullname[i])
-                } 
             }
-            else{
-                console.log(err);
-            }
-        }
-    );
+            // Beneficiaries
+            for(let i = 0; i < ben_fullname.length; i++){
+                conn.query('INSERT INTO member_beneficiaries SET fullname = ?, relationship = ?, ben_birth = ?, mem_id = ?',[ben_fullname[i], ben_relationship[i], ben_birthdate[i],  mem_id],(err, results, fields) =>{
+                    if (err) throw err;
+                });
+                console.log(ben_fullname[i])
+            }  
+            // ID's
+            conn.query('INSERT INTO member_ids SET sss = ?, gsis = ?, tin = ?, mem_id = ?',[sss, gsis, tin, mem_id],(err, results, fields) => { 
+                if (err) throw err;
+                // Background Education
+                conn.query('INSERT INTO member_education SET course = ?, school = ?, year_grad = ?, mem_id = ?',[course, school, year_grad, mem_id],(err, results, fields) => { 
+                    if (err) throw err;
+                    // Occupation
+                    conn.query('INSERT INTO member_occupation SET occupation = ?, occu_address = ?, employee_name = ?, date_employed = ?, salary = ?, mem_id = ?',[occupation, occu_address, emmployee_name, date_employed, salary, mem_id],(err, results, fields) => { 
+                        if (err) throw err;
+                        // Business
+                        conn.query('INSERT INTO member_business SET business_name = ?, business_address = ?, mem_id = ?',[business_name, business_address,  mem_id],(err, results, fields) => { 
+                            if (err) throw err;   
+                            conn.release();
+                            callback();           
+                        });                 
+                    });               
+                });               
+            });
+        }); 
+    });
     res.render('a-application-dl', data);
-
 }
 
 exports.add_registration = (req, res) => {
@@ -192,6 +192,16 @@ exports.err500 = (req, res) => {
 
 
 // Trial
+exports.trybenAdmin = (req, res) => { 
+    const {ben_fullname} = req.body;
+    const data = {
+        title: "Try Ben Admin"
+    }
+    for(let i = 1; i <= 3; i++){
+        console.log(ben_fullname)
+    }  
+    res.render('try-ben', data);
+}
 exports.tryben = (req, res) => { 
     const {ben_fullname} = req.body;
     const data = {

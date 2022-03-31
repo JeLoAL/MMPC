@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const uuid = require('uuid');
 const multer = require('multer');
+
 // Connection Pool
 const pool = mysql.createPool({
     connectionLimit : 100,
@@ -10,6 +11,10 @@ const pool = mysql.createPool({
     database        :process.env.DB_NAME
 });
 
+// SQL 
+const member = 'SELECT * FROM member_info';
+
+// Uploading Profile
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, './profile');
@@ -21,26 +26,6 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({storage: storage});
-
-function checkEmail(email){
-    pool.query('SELECT * FROM member_info WHERE email='+pool.escape(String(email)), (err, row) => {
-        if(err) {
-            // logger.error('Error in DB');
-            // logger.debug(err);
-            console.log(err);
-            return;
-        } else {
-            if (row && row.length ) {
-                emailExist = "Email already in use";
-                console.log(emailExist);
-                // do something with your row variable
-            } else {
-                emailExist = "";
-                console.log("Email available");
-            }
-        }
-    });
-}
 
 exports.SAdashboard = (req, res) => { 
     const data = {
@@ -60,15 +45,27 @@ exports.SAdashboardGET = (req, res) => {
 exports.SAmembers = (req, res) => { 
     const data = {
         title: "Members",
-    }   
-    res.render('sa-members', data);
+    }
+    pool.getConnection((err, connection) => {
+        if(err) throw err; //not connected
+    
+        //user the connect
+        connection.query(member, (err, rows) =>{
+            //When done with the connection, release it.
+            connection.release();
+            if(!err){
+                res.render('admin/sa-members', {rows});
+            } else {
+                console.log(err);
+            }
+        });
+    });
 }
-
-exports.SAmemberProfile = (req, res) => { 
+exports.SAmemberProfile = (req, res) => {
     const data = {
-        title: "Member Profile",
-    }   
-    res.render('sa-members-profile', data);
+        title: "Members Profile"
+    }
+    res.render('sa-members-profile', data)
 }
 
 exports.SAaddmemberG = (req, res) => { 

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     //Contacts
     $('#contacts').on('input', function(){
         if(this.value[0] != 0 || this.value[1] != 9 || this.value.length >= 12){
@@ -458,7 +459,7 @@ $(document).ready(function(){
                 let newDate1 = PaymentCnt.setDate(PaymentCnt.getDate() + amorArr[amor]);
                 PaymentCnt = new Date(newDate1);
                 numberOfPayment += 1;
-            }
+            } 
             console.log('Number of Payment: '+numberOfPayment)
             // Set Start Payment
             let setstrtPayment = new Date(start);

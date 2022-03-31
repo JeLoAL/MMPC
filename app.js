@@ -18,28 +18,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Static Files
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 //Templating Engine
 app.engine('hbs', exphbs.engine( {
     extname: '.hbs'
 }));
 app.set('view engine', 'hbs');
-
-// // Connection Pool
-// const pool = mysql.createPool({
-//     connectionLimit : 100,
-//     host            :process.env.DB_HOST,
-//     user            :process.env.DB_USER,
-//     password        :process.env.DB_PASSWORD,
-//     database        :process.env.DB_NAME
-// });
-
-// //DB Connection
-// pool.getConnection((err, connection) => {
-//     if(err) throw err; //not connected
-//     console.log('Connection as ID ' + connection.threadId);
-// });
 
 // Routes
 const routes = require('./server/routes/user');

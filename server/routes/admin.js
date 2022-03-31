@@ -6,8 +6,8 @@ const adminController = require('../controllers/adminController');
 // adminController
 router.post('/sa-dashboard', adminController.SAdashboard);
 router.get('/sa-dashboard', adminController.SAdashboardGET);
-router.get('/sa-members', adminController.SAmembers);
-router.post('/sa-members-profile', adminController.SAmemberProfile);
+router.get('/admin/sa-members', adminController.SAmembers);
+router.get('/sa-members-profile/:mem_id', adminController.SAmemberProfile);
 router.get('/sa-addmember', adminController.SAaddmemberG);
 router.post('/sa-addmember', adminController.SAaddmemberP);
 router.post('/sa-addmember', adminController.SAaddmemberP1);

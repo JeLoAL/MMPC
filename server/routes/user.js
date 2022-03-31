@@ -29,6 +29,7 @@ router.get('/404', userController.err404);
 router.get('/500', userController.err500);
 
 //Try
+router.get('/admin/try-ben', userController.trybenAdmin);
 router.get('/try-ben', userController.tryben);
 router.post('/try-ben', userController.trybenP);
 

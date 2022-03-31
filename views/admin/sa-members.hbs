@@ -1,0 +1,80 @@
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar --> 
+        {{> sidebar }}
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                {{> topbar }}
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid link">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <a href="/sa-members-profile">Profile</a>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Membership ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each rows}}
+                                            <tr>
+                                                <td>{{this.mem_id}}</td>
+                                                <td>{{this.fn}}<span> </span>{{this.ln}}</td>
+                                                <td>{{this.email}}</td>
+                                                <td>{{this.status}}</td>
+                                                <td class="center">
+                                                    <a href="/sa-members-profile/{{this.mem_id}}">
+                                                        <button class="btn btn-primary" type="button">
+                                                            <i class="fas fa-eye fa-sm"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="/sa-members-profile/{{this.mem_id}}">
+                                                        <button class="btn btn-primary" type="button">
+                                                            <i class="fas fa-trash fa-sm"></i>
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            {{> footer }}
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    {{> modal }}
